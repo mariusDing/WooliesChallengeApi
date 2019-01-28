@@ -14,6 +14,8 @@ namespace WooliesChallengeApi.Application.Infrastructure.APIs
 
         private const string ShopHistory = "shopperHistory";
 
+        private const string TrolleyCalculator = "trolleyCalculator";
+
         public static string GetProduct(string token)
         {
             return $"{Endpoint}/{Procuts}?{AppendQueryString(token)}";
@@ -23,6 +25,12 @@ namespace WooliesChallengeApi.Application.Infrastructure.APIs
         {
             return $"{Endpoint}/{ShopHistory}?{AppendQueryString(token)}";
         }
+
+        public static string GetTotal(string token)
+        {
+            return $"{Endpoint}/{TrolleyCalculator}?{AppendQueryString(token)}";
+        }
+
 
         private static string AppendQueryString(string token)
         {

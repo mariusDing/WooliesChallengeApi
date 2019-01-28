@@ -9,6 +9,7 @@ using WooliesChallengeApi.Application.Infrastructure.APIs;
 using Microsoft.Extensions.Options;
 using WooliesChallengeApi.Options;
 using WooliesChallengeApi.Application.ShopHistories.Model;
+using WooliesChallengeApi.Application.Trolleys;
 
 namespace WooliesChallengeApi.Application.Infrastructure
 {
@@ -17,5 +18,7 @@ namespace WooliesChallengeApi.Application.Infrastructure
         Task<List<Product>> GetProducts();
 
         Task<List<ShopperHistory>> GetShopHistories();
+
+        Task<double> GetTotal(CalculateTrolleyQuery request);
     }
 }

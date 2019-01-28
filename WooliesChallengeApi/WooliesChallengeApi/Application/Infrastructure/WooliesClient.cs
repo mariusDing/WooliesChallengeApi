@@ -9,6 +9,8 @@ using WooliesChallengeApi.Application.Infrastructure.APIs;
 using Microsoft.Extensions.Options;
 using WooliesChallengeApi.Options;
 using WooliesChallengeApi.Application.ShopHistories.Model;
+using WooliesChallengeApi.Application.Trolleys;
+using System.Text;
 
 namespace WooliesChallengeApi.Application.Infrastructure
 {
@@ -49,6 +51,20 @@ namespace WooliesChallengeApi.Application.Infrastructure
             var shopperHistories = JsonConvert.DeserializeObject<List<ShopperHistory>>(await response.Content.ReadAsStringAsync());
 
             return shopperHistories;
+        }
+
+        public async Task<double> GetTotal(CalculateTrolleyQuery request)
+        {
+            var uri = API.GetTotal(_userOption.Token);
+
+            var response = await _httpClient.PostAsync(uri, new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json"));
+
+            if (!response.IsSuccessStatusCode)
+                throw new HttpRequestException($"Post to calculate trolley fails. Msg:{response.ReasonPhrase}");
+
+            var total = Convert.ToDouble(await response.Content.ReadAsStringAsync());
+
+            return total;
         }
     }
 }
