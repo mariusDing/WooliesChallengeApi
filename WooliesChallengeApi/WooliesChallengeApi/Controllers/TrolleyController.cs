@@ -10,8 +10,8 @@ namespace WooliesChallengeApi.Controllers
 {
     public class TrolleyController : BaseController
     {
-        // GET api/answers/user
-        [HttpPost("trolleyCalculator")]
+        // GET api/answers/trolleyTotal
+        [HttpPost("trolleyTotal")]
         public async Task<ActionResult> GetTotal(CalculateTrolleyQuery query)
         {
             var totalAmount = await Mediator.Send(query);

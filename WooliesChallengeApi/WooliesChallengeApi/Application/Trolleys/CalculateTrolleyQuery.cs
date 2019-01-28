@@ -5,7 +5,7 @@ using WooliesChallengeApi.Application.Trolleys.Model;
 
 namespace WooliesChallengeApi.Application.Trolleys
 {
-    public class CalculateTrolleyQuery : IRequest<double>
+    public class CalculateTrolleyQuery : IRequest<decimal>
     {
         public List<Product> Products { get; set; } = new List<Product>();
 

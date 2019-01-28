@@ -53,7 +53,7 @@ namespace WooliesChallengeApi.Application.Infrastructure
             return shopperHistories;
         }
 
-        public async Task<double> GetTotal(CalculateTrolleyQuery request)
+        public async Task<decimal> GetTotal(CalculateTrolleyQuery request)
         {
             var uri = API.GetTotal(_userOption.Token);
 
@@ -62,7 +62,7 @@ namespace WooliesChallengeApi.Application.Infrastructure
             if (!response.IsSuccessStatusCode)
                 throw new HttpRequestException($"Post to calculate trolley fails. Msg:{response.ReasonPhrase}");
 
-            var total = Convert.ToDouble(await response.Content.ReadAsStringAsync());
+            var total = Convert.ToDecimal(await response.Content.ReadAsStringAsync());
 
             return total;
         }

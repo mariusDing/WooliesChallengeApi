@@ -8,7 +8,7 @@ using WooliesChallengeApi.Application.Infrastructure;
 
 namespace WooliesChallengeApi.Application.Trolleys
 {
-    public class CalculateTrolleyQueryHandler : IRequestHandler<CalculateTrolleyQuery, double>
+    public class CalculateTrolleyQueryHandler : IRequestHandler<CalculateTrolleyQuery, decimal>
     {
         private readonly IWooliesClient _client;
 
@@ -17,7 +17,7 @@ namespace WooliesChallengeApi.Application.Trolleys
             _client = wooliesClient;
         }
 
-        public async Task<double> Handle(CalculateTrolleyQuery request, CancellationToken cancellationToken)
+        public async Task<decimal> Handle(CalculateTrolleyQuery request, CancellationToken cancellationToken)
         {
             return await _client.GetTotal(request);
         }

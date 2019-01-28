@@ -9,6 +9,6 @@ namespace WooliesChallengeApi.Application.Trolleys.Model
     {
         public List<QuantityValue> Quantities { get; set; } = new List<QuantityValue>();
 
-        public double Total { get; set; }
+        public decimal Total { get; set; }
     }
 }

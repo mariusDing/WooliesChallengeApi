@@ -19,6 +19,6 @@ namespace WooliesChallengeApi.Application.Infrastructure
 
         Task<List<ShopperHistory>> GetShopHistories();
 
-        Task<double> GetTotal(CalculateTrolleyQuery request);
+        Task<decimal> GetTotal(CalculateTrolleyQuery request);
     }
 }
