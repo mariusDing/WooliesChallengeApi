@@ -60,9 +60,7 @@ namespace WooliesChallengeApi
             });
 
             app.UseHttpsRedirection();
-            app.UseMvc(routes => {
-                routes.MapRoute("default", "/swagger");
-            });
+            app.UseMvc();
         }
     }
 }

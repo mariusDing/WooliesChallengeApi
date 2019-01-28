@@ -5,7 +5,7 @@ EXPOSE 443
 
 FROM microsoft/dotnet:2.1-sdk-stretch AS build
 WORKDIR /src
-COPY ["WooliesChallengeApi/WooliesChallengeApi.csproj", "WooliesChallengeApi/"]
+COPY WooliesChallengeApi/WooliesChallengeApi.csproj WooliesChallengeApi/
 RUN dotnet restore "WooliesChallengeApi/WooliesChallengeApi.csproj"
 COPY . .
 WORKDIR "/src/WooliesChallengeApi"

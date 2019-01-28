@@ -33,7 +33,7 @@ namespace WooliesChallengeApi.Test
                             };
                         });
 
-            _mockUserOption.SetupGet(x => x.Value).Returns(new UserOption() { Name = "Marius", Token = "" });
+            _mockUserOption.SetupGet(x => x.Value).Returns(new UserOption() { Name = "Marius Ding", Token = "" });
         }
 
         [Fact]
