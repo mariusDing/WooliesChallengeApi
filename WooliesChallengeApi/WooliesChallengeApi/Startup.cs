@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -10,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using WooliesChallengeApi.Options;
 
 namespace WooliesChallengeApi
 {
@@ -22,13 +25,24 @@ namespace WooliesChallengeApi
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.Configure<UserOption>(Configuration.GetSection("User"));
+
+            services.AddAutoMapper();
+
+            services.AddMediatR();
+
+            services.AddSwaggerDocument(config => {
+                config.PostProcess = document =>
+                {
+                    document.Info.Title = "Challenge API";
+                };
+            });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
@@ -40,8 +54,15 @@ namespace WooliesChallengeApi
                 app.UseHsts();
             }
 
+            app.UseSwagger();
+            app.UseSwaggerUi3(opt => {
+                opt.DocExpansion = "list";
+            });
+
             app.UseHttpsRedirection();
-            app.UseMvc();
+            app.UseMvc(routes => {
+                routes.MapRoute("default", "/swagger");
+            });
         }
     }
 }
