@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace WooliesChallengeApi.Controllers
 {
-    [Route("api/answers/[controller]")]
+    [Route("api/answers")]
     [ApiController]
 
     public class BaseController : ControllerBase {

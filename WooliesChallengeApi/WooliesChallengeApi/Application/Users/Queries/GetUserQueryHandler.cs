@@ -34,7 +34,7 @@ namespace WooliesChallengeApi.Application.Users.Queries
                 Token = _userOption.Token
             };
 
-            return _mapper.Map<UserVM>(user);
+            return await Task.FromResult(_mapper.Map<UserVM>(user));
         }
     }
 }

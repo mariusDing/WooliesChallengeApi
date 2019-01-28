@@ -13,13 +13,13 @@ using Xunit;
 
 namespace WooliesChallengeApi.Test
 {
-    public class TestHandler
+    public class TestUserHandler
     {
         private readonly Mock<IMapper> _mockMapper = new Mock<IMapper>();
         private readonly Mock<IOptions<UserOption>>_mockUserOption = new Mock<IOptions<UserOption>>();
         private readonly CancellationToken _cancellationToken;
 
-        public TestHandler()
+        public TestUserHandler()
         {
             _cancellationToken = new CancellationToken();
 

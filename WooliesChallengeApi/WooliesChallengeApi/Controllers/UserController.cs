@@ -10,7 +10,7 @@ namespace WooliesChallengeApi.Controllers
     public class UserController : BaseController
     {
         // GET api/answers/user
-        [HttpGet]
+        [HttpGet("user")]
         public async Task<ActionResult> Get()
         {
             var user = await Mediator.Send(new GetUserQuery());
