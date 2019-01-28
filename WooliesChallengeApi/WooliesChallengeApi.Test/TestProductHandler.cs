@@ -32,13 +32,6 @@ namespace WooliesChallengeApi.Test
             _mockMapper.Setup(x => x.Map<List<ProductVM>>(It.IsAny<List<Product>>()))
                        .Returns((List<Product> source) => source.Select(s => new ProductVM() { Name = s.Name, Price = s.Price, Quantity = s.Quantity }).ToList());
 
-            //source.Select(s => new ProductVM()
-            //{
-            //    Name = s.Name,
-            //    Price = s.Price,
-            //    Quantity = s.Quantity
-            //}).ToList();
-
             var products = new List<Product> {
                 new Product() { Name = "Product A", Price = 1, Quantity = 0 },
                 new Product() { Name = "Product B", Price = 2, Quantity = 0 },
