@@ -1,7 +1,7 @@
 # WooliesChallengeApi
 Created Open APIs for the challeges.
 
-Implemented CQRS pattern for the API by using MediatoR(https://github.com/jbogard/MediatR).
+Implemented CQRS pattern for the API by using MediatoR (https://github.com/jbogard/MediatR).
 
 Using simplified "Clean Architecture" for structure.
 
